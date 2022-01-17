@@ -40,11 +40,11 @@
   </div>
 
   <div class="field">
-    <%= f.label :encrypted_password %>
+    <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> 文字以上)</em>
     <% end %>
-    <%= f.password_field :encrypted_password, autocomplete: "new-password" %>
+    <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
 
   <div class="field">
