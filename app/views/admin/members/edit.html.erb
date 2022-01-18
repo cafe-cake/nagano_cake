@@ -1,0 +1,91 @@
+<main>
+  <h2><%= @member.last_name %><%= @member.first_name %>さんの会員情報編集</h2>
+    <table>
+      <tbody>
+        <tr>
+        <th>会員ID</th><td><%= @member.id%></td>
+      </tr>
+      <%= form_with(model:[:admin,@member],local:true) do |f| %>
+        <tr>
+          <td>
+            <div class="form-group">
+              <label for="last_name">氏名</label><br>
+              <%= f.text_field :last_name,autofocus: true, id:"inputName" %>
+            </div>
+          </td>
+          <td>
+            <div class="form-group">
+              <label for="last_name"></label><br>
+              <%= f.text_field :first_name,autofocus: true, id:"inputName" %>
+            </div>
+           </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="form-group">
+              <label for="last_name">フリガナ</label><br>
+              <%= f.text_field :last_name_kana,autofocus: true, id:"inputName" %>
+            </div>
+          </td>
+
+          <td>
+            <div class="form-group">
+              <label for="last_name"></label><br>
+              <%= f.text_field :first_name_kana,autofocus: true, id:"inputName" %>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="form-group">
+              <label for="last_name">郵便番号</label><br>
+              <%= f.text_field :post_number,autofocus: true, id:"inputName" %>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="form-group">
+              <label for="last_name">住所</label><br>
+              <%= f.text_area :address,autofocus: true, id:"inputName" %>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="form-group">
+              <label for="last_name">電話番号</label><br>
+              <%= f.text_field :phone_number,autofocus: true, id:"inputName" %>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="form-group">
+              <label for="last_name">メールアドレス</label><br>
+              <%= f.text_field :email,autofocus: true, id:"inputName" %>
+            </div>
+          </td>
+        </tr>
+          <td>
+           <label for="last_name">会員ステータス</label><br>
+            <label><%= f.radio_button :is_deleted, :false %> 有効</label>
+            <label><%= f.radio_button :is_deleted, :true %> 退会</label>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="form-group">
+                <%= f.submit '変更を保存' %>
+            </div>
+           </td>
+        </tr>
+          <% end %>
+      </tbody>
+    </table>
+</main>
