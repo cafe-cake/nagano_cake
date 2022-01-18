@@ -23,16 +23,16 @@
         (税抜価格)
       </td>
       <td>
-        <%= @item.price * 1.1 %>(<%= @item.price %>)円
+        <%= ((@item.price.to_i * 1.1).round).to_s(:delimited) %>(<%= (@item.price).to_s(:delimited) %>)円
       </td>
     </tr>
     <tr>
       <td>販売ステータス</td>
       <td>
         <% case @item.sales_status when "販売中" %>
-        <span style="background: green;"><%= item.sales_status %></span>
+        <span style="color: green;"><%= @item.sales_status %></span>
         <% when "販売中止" %>
-        <span style="background: dimgray;"><%= item.sales_status %></span>
+        <span style="color: dimgray;"><%= @item.sales_status %></span>
         <% end %>
       </td>
     </tr>
