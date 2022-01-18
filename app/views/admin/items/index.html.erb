@@ -19,31 +19,29 @@
           ステータス
         </th>
       </tr>
-  </table>
-  <tbody>
-    <% @items.each do |item| %>
-      <tr>
-        <td>
-          <%= item.items %>
-        </td>
-        <td>
-          <%= item.name %>
-        </td>
-        <td>
-          <%= item.price %>
-        </td>
-        <td>
-          <%= item.genre.name %>
-        </td>
-        <td>
-          <% case item.sales_status when "販売中" %>
-          <span style="background: green;"><%= item.sales_status %></span>
-          <% when "販売中止" %>
-          <span style="background: dimgray;"><%= item.sales_status %></span>
-          <% end %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
+      <tbody>
+        <% @items.each do |item| %>
+          <tr>
+            <td><%= item.id %></td>
+            <td>
+              <%= item.name %>
+            </td>
+            <td>
+              <%= item.price %>
+            </td>
+            <td>
+              <%= item.genre.name %>
+            </td>
+            <td>
+              <% case item.sales_status when "販売中" %>
+              <span style="color: green;"><%= item.sales_status %></span>
+              <% when "販売中止" %>
+              <span style="color: dimgray;"><%= item.sales_status %></span>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   <%= paginate @items %>
 </div>

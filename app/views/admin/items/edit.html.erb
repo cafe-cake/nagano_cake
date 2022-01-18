@@ -1,6 +1,6 @@
 <h3>商品編集</h3>
 
-<%= form_with(model:[@item], url:admin_item_path local:true) do |f| %>
+<%= form_with(model:[@item], url:admin_item_path, local:true) do |f| %>
 
   <div class="item-form">
     <%= f.label :image %>
@@ -16,7 +16,7 @@
   </div>
     <div class="item-form">
     <%= f.label :genre_id %>
-    <%= f.collection_select :genre_id, Genre.all ,:id, :name, include_blank: "--選択してください--" %>
+    <%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "--選択してください--" %>
   </div>
     <div class="item-form">
     <%= f.label :price %>
