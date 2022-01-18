@@ -4,6 +4,7 @@
     <title>NaganoCake</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <script src="https://kit.fontawesome.com/cb9870c1ab.js" crossorigin="anonymous"></script>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -12,6 +13,7 @@
   <body>
     <header>
       <div class="container bg-light">
+        <a class="navbar-brand p-3" href="/"><%= image_tag('logo.png', :size =>'80x80') %></a>
         <div class="row justify-content-end" >
           <% if member_signed_in? %>
           <button class= "btn btn-outline-secondary">
