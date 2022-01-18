@@ -1,0 +1,58 @@
+<main>
+  <h2>配送先登録/一覧</h2>
+    <table>
+      <tbody>
+        <%= form_with model:@address,local:true do |f| %>
+        <tr>
+          <td>郵便番号(ハイフンなし)</td>
+          <td>
+            <div class="form-group">
+              <%= f.text_field :post_number,autofocus: true, id:"inputName" %>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>住所</td>
+          <td>
+             <div class="form-group">
+              <%= f.text_area :address,autofocus: true, id:"inputName" %>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>宛名</td>
+          <td>
+            <div class="form-group">
+              <%= f.text_field :name,autofocus: true, id:"inputName" %>
+            </div>
+          </td>
+          <td>
+           <div class="form-group">
+            <%= f.submit '新規登録' %>
+           </div>
+          </td>
+        </tr>
+        <% end %>
+
+        <tr>
+          <th>郵便番号</th>
+          <th>住所</th>
+          <th>宛名</th>
+        </tr>
+
+       <% @addresses.each do |address|%>
+       <tr>
+         <td><%= address.post_number %></td>
+         <td><%= address.address %></td>
+         <td><%= address.name %></td>
+         <td>
+           <%= link_to '編集する',edit_address_path(address) %>
+           <%= link_to '削除する',address_path(address),method: :delete %>
+         </td>
+       </tr>
+       <% end %>
+          <tr>
+        </tr>
+      </tbody>
+    </table>
+</main>
