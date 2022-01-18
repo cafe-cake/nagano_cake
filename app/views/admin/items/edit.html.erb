@@ -1,0 +1,35 @@
+<h3>商品編集</h3>
+
+<%= form_with(model:[@item], url:admin_item_path local:true) do |f| %>
+
+  <div class="item-form">
+    <%= f.label :image %>
+    <%= f.attachment_field :image %>
+  </div>
+  <div class="item-form">
+    <%= f.label :name %>
+    <%= f.text_field :name, placeholder: "商品名" %>
+  </div>
+    <div class="item-form">
+    <%= f.label :introduction %>
+    <%= f.text_area :introduction, placeholder: "ここに説明文を記述します" %>
+  </div>
+    <div class="item-form">
+    <%= f.label :genre_id %>
+    <%= f.collection_select :genre_id, Genre.all ,:id, :name, include_blank: "--選択してください--" %>
+  </div>
+    <div class="item-form">
+    <%= f.label :price %>
+    <%= f.text_field :price, placeholder: "1000" %>円
+  </div>
+  <div class="item-form">
+    <%= f.label :sales_status %>
+    <%= f.radio_button :sales_status, :"販売中" %>
+    <%= f.label :sales_status, "販売中", checked: true %>
+    <%= f.radio_button :sales_status, :"販売中止" %>
+    <%= f.label :sales_status, "販売中止" %>
+  </div>
+  <div class="item-form">
+    <%= f.submit '変更を保存' %>
+  </div>
+<% end %>
