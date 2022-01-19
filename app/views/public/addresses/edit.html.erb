@@ -1,4 +1,40 @@
+<% if　false %>
 <main>
   <h2>配送先編集</h2>
-  <%= render 'addresses/form'%>
+    <table>
+       <%= form_with model:@address,url:address_path,local:true do |f| %>
+        <tbody>
+          <tr>
+            <td>郵便番号(ハイフンなし)</td>
+            <td>
+              <div class="form-group">
+                <%= f.text_field :post_number,autofocus: true %>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>住所</td>
+            <td>
+               <div class="form-group">
+                <%= f.text_area :address,autofocus: true %>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>宛名</td>
+            <td>
+              <div class="form-group">
+                <%= f.text_field :name,autofocus: true %>
+              </div>
+            </td>
+            <td>
+             <div class="form-group">
+              <%= f.submit '変更内容を保存' %>
+             </div>
+            </td>
+          </tr>
+        </tbody>
+      <% end %>
+     </table>
 </main>
+<% end %>

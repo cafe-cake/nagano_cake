@@ -1,4 +1,5 @@
 class Public::AddressesController < ApplicationController
+
   def index
     @addresses = Address.all
     @address = Address.new
@@ -20,8 +21,8 @@ class Public::AddressesController < ApplicationController
 
   def update
     @address = Address.find(params[:id])
-    if @address.update(address_params)
-      redirect_to action: :index
+    if @address.update!(address_params)
+      redirect_to addresses_path
     else
       render :edit
     end
