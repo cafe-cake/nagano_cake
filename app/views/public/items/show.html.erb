@@ -1,0 +1,20 @@
+<div class="items_index">
+  <div class="contents-title text-center">
+    <div class="row">
+      <div class="col-sm-3">
+        <p>部分テンプレート記述欄</p>
+      </div>
+      
+      <% form_with model:@%>
+      
+      <div class="col-sm-9">
+        <%= attachment_image_tag @item, :image, size: "300x300", fallback: "no_image.jpg" %>
+        <p><%= @item.name %></p>
+        <p><%= @item.introduction %></p>
+        <p>￥<%= ((@item.price.to_i * 1.1).round).to_s(:delimited) %>(税込)</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
