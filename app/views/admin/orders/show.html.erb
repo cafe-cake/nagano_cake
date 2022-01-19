@@ -1,4 +1,3 @@
-<% if　false %>
 <h4>注文詳細</h4>
 
   <table>
@@ -44,11 +43,45 @@
     </table>
 
     <table>
-
-
-
-    <% @order.item_orders.each do |item_orders| %>
-    <% end %>
+      <thead>
+        <tr>
+          <th>商品名</th>
+          <th>単価(税込)</th>
+          <th>数量</th>
+          <th>小計</th>
+          <th>製作ステータス</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @order.item_orders.each do |item_orders| %>
+        <tr>
+          <td><%= item_orders.item.name %></td>
+          <td><%= item_orders.price %></td>
+          <td><%= item_orders.count %></td>
+          <%#単価×数量の合計値を表示する%>
+          <td><%= item_orders.sum_of_price</td>
+          <%= form_with model:[:admin, item_orders], local: true do |f| %>
+            <td><%= f.collection_select(:making_status, ItemOrder.making_status_i18n, :first, :last, { selected: item_orders.making_status } %></td>
+            <td><%= f.submit "更新", class:"btn btn-success" %></td>
+          <% end %>
+        </tr>
+        <% end %>
+      </tbody>
     </table>
 
- <% end %>
+
+    <table>
+        <tr>
+          <td>商品合計</td>
+          <td><%= @order.item_orders_total_payment %></td>
+        </tr>
+        <tr>
+          <td>送料</td>
+          <td><%= @order.postage %></td>
+        </tr>
+        <tr>
+          <td>請求額合計</td>
+          <td><%= @order.item_orders_total_payment + @order.postage %></td>
+        </tr>
+    </table>
