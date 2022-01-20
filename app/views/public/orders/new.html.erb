@@ -1,4 +1,4 @@
-<% if　false %>
+
 <div>
   <h4>注文情報入力</h4>
 </div>
@@ -15,7 +15,6 @@
     <%= f.label :select_address, "ご自身の住所", value: 0 %>
     <p>
       〒<%= current_member.post_number %> <%= current_member.address %>
-      <%#一旦仮の表示、フルネームメソッド使って後でテスト%>
       <%= current_member.last_name %> <%= current_member.first_name %>
     </p>
   </div>
@@ -53,4 +52,3 @@
   </div>
 <% end %>
 
-<% end %>
