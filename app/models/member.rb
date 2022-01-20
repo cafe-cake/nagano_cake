@@ -5,7 +5,7 @@ class Member < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :cart_items, dependent: :destroy
-  has_many :oders, dependent: :destroy
+  has_many :orders, dependent: :destroy
   has_many :addresses, dependent: :destroy
   validates :is_deleted, inclusion: { in: [true, false] }
   validates :last_name,:first_name,:address, presence: true,
