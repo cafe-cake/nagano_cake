@@ -1,10 +1,15 @@
 ja:
+  views:
+    pagination:
+      first: "&laquo; 最初"
+      last: "最後 &raquo;"
+      previous: "&lsaquo; 前"
+      next: "次 &rsaquo;"
+      truncate: "..."
+
   activerecord:
   #ここから(日本語化したいカルマ：表示名)
     attributes:
-
-      #例 name: 名前
-  #ここまで
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
