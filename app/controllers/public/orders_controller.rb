@@ -10,7 +10,9 @@ class Public::OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
-    @item_order = ItemOder.find(params[:id])
+    @item_order = ItemOrder.find(params[:id])
+    @items = Item.all
+    @item_orders = ItemOrder.all
   end
 
 end
