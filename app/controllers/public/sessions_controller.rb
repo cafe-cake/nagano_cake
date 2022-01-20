@@ -3,7 +3,7 @@
 class Public::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
   before_action :member_state, only: [:create]
-  
+
   def after_sign_in_path_for(resource)
     root_path
   end
@@ -26,15 +26,13 @@ class Public::SessionsController < Devise::SessionsController
   # end
 
   protected
-  
+
   def member_state
     @member = Member.find_by(email: params[:member][:email])
-    if @member
-      if @member.valid_password?(params[:member][:password]) && (@member.is_deleted == false)
+    return if !@member
+    if @member.valid_password?(params[:member][:password]) && (@member.is_deleted == false)
         flash[:notice] = "既に退会されています。再度ご登録をお願いします。"
         redirect_to new_member_registration_path
-      else
-      end
     end
   end
   # If you have extra params to permit, append them to the sanitizer.
