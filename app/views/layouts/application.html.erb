@@ -14,7 +14,7 @@
     <header>
       <div class="container-fluid bg-light">
         <div class="row justify-content-between">
-          <a class="navbar-brand col-auto mr-auto p-3 m-0" href="/"><%= image_tag('logo.png', :size =>'80x80') %></a>
+          <a class="col-auto mr-auto p-3 m-0" href="/"><%= image_tag('logo.png', :size =>'80x80') %></a>
           <div class="col-md-lg-auto mr-3 align-self-center">
             <% if member_signed_in? %>
             <button class= "btn btn-outline-secondary mr-3">
@@ -50,7 +50,7 @@
               <%= link_to "About", about_path, class: "text-dark" %>
             </button>
             <button class= "btn btn-outline-secondary mr-3">
-              <%= link_to "商品一覧", items_path, class: "text-dark" %>
+              <%= link_to "商品一覧", root_path, class: "text-dark" %>
             </button>
             <button class= "btn btn-outline-secondary mr-3">
               <%= link_to "新規登録", new_member_registration_path, class: "text-dark" %>

@@ -23,7 +23,7 @@ class Public::MembersController < ApplicationController
     @member = current_member
     @member.update(is_deleted: true)
     reset_session
-    flash[:nitice] = "またのご利用をお待ちしております。"
+    flash[:notice] = "またのご利用をお待ちしております。"
     redirect_to root_path
   end
 
