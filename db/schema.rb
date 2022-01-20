@@ -16,6 +16,7 @@
     t.string "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+
   end
 
   create_table "admins", force: :cascade do |t|
@@ -31,6 +32,7 @@
   end
 
   create_table "cart_items", force: :cascade do |t|
+
   end
 
   create_table "genres", force: :cascade do |t|
