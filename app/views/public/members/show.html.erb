@@ -14,10 +14,10 @@
       <table class="table-bordered justify-content-between">
         <tbody>
           <tr>
-            <th>会員ID</th><td><%= @member.id%></td>
+            <th>氏名</th><td><%= @member.last_name %> <%= @member.first_name %></td>
           </tr>
           <tr>
-            <th>フリガナ</th><td><%= @member.last_name_kana %><%= @member.first_name_kana%></td>
+            <th>フリガナ</th><td><%= @member.last_name_kana %> <%= @member.first_name_kana %></td>
           </tr>
           <tr>
             <th>郵便番号</th><td><%= @member.post_number %></td>

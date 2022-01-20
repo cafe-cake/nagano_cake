@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     resources :members, only: [:show, :edit, :update] do
       collection do
         get :unsubscribe
-        get :withdraw
+        patch :withdraw
       end
     end
   end
