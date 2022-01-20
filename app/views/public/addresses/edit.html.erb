@@ -1,8 +1,7 @@
-<% if　false %>
 <main>
   <h2>配送先編集</h2>
+  <%= form_with model:@address,local:true do |f| %>
     <table>
-       <%= form_with model:@address,url:address_path,local:true do |f| %>
         <tbody>
           <tr>
             <td>郵便番号(ハイフンなし)</td>
@@ -33,8 +32,7 @@
              </div>
             </td>
           </tr>
-        </tbody>
-      <% end %>
+      </tbody>
      </table>
+   <% end %>
 </main>
-<% end %>
