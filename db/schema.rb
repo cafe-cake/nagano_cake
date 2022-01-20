@@ -10,13 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+ActiveRecord::Schema.define(version: 2022_01_17_033854) do
 
+  create_table "addresses", force: :cascade do |t|
+    t.integer "member_id"
     t.string "name"
     t.string "post_number"
     t.string "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-
+    t.index ["member_id"], name: "index_addresses_on_member_id"
   end
 
   create_table "admins", force: :cascade do |t|
@@ -32,7 +35,13 @@
   end
 
   create_table "cart_items", force: :cascade do |t|
-
+    t.integer "member_id"
+    t.integer "item_id"
+    t.integer "count"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_cart_items_on_item_id"
+    t.index ["member_id"], name: "index_cart_items_on_member_id"
   end
 
   create_table "genres", force: :cascade do |t|
@@ -42,13 +51,19 @@
   end
 
   create_table "item_orders", force: :cascade do |t|
-
+    t.integer "order_id"
+    t.integer "item_id"
     t.integer "price"
     t.integer "count"
     t.integer "making_status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_item_orders_on_item_id"
+    t.index ["order_id"], name: "index_item_orders_on_order_id"
+  end
 
+  create_table "items", force: :cascade do |t|
+    t.integer "genre_id"
     t.string "name"
     t.text "introduction"
     t.integer "price"
@@ -56,7 +71,7 @@
     t.integer "sales_status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-
+    t.index ["genre_id"], name: "index_items_on_genre_id"
   end
 
   create_table "members", force: :cascade do |t|
@@ -80,7 +95,7 @@
   end
 
   create_table "orders", force: :cascade do |t|
-
+    t.integer "member_id"
     t.string "post_number"
     t.string "address"
     t.string "name"
@@ -90,7 +105,7 @@
     t.integer "order_status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-
+    t.index ["member_id"], name: "index_orders_on_member_id"
   end
 
 end
