@@ -13,9 +13,9 @@ class Admin::ItemsController < ApplicationController
     end
   end
 
-  def index
-    @items = Item.page(params[:page]).per(10).reverse_order
-  end
+    def index
+      @items = Item.page(params[:page]).per(10).reverse_order
+    end
 
   def show
     @item = Item.find(params[:id])

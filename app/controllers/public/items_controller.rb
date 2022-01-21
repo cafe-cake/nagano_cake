@@ -10,9 +10,9 @@ class Public::ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @cart_item = CartItem.new
 
-    unless member_signed_in?
-    flash[:alert] =
-    "ログイン済みユーザーのみカートに商品を追加できます"
-    end
+      unless member_signed_in?
+      flash[:alert] =
+      "ログイン済みユーザーのみカートに商品を追加できます"
+      end
   end
 end
