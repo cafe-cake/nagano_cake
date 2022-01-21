@@ -12,7 +12,7 @@
         <table>
           <tbody>
             <tr>
-            <th>会員ID</th><td><%= @member.id %></td>
+            <td>会員ID</t><td><%= @member.id %></td>
           </tr>
             <tr>
               <td>氏名</td>
@@ -20,12 +20,12 @@
                 <div class="form-group">
                   <%= f.text_field :last_name,autofocus: true %>
                 </div>
-              </td>
 
               <td>
                 <div class="form-group">
                   <%= f.text_field :first_name,autofocus: true %>
                 </div>
+              </td>
                </td>
             </tr>
             <tr>
@@ -47,7 +47,7 @@
               <td>郵便番号</td>
               <td>
                 <div class="form-group">
-                  <%= f.text_field :post_number,autofocus: true %>
+                  <%= f.text_field :post_number,autofocus: true  %>
                 </div>
               </td>
             </tr>
@@ -56,7 +56,7 @@
               <td>住所</td>
               <td>
                 <div class="form-group">
-                  <%= f.text_area :address,autofocus: true %>
+                  <%= f.text_field :address,size: "80x2",autofocus: true %>
                 </div>
               </td>
             </tr>
@@ -84,24 +84,24 @@
                 <label><%= f.radio_button :is_deleted, :true %> 退会</label>
               </td>
             </tr>
-      </div>
-    </div>
-    <div class="row">
-        <tr>
-          <td>
-          <div class="col-md-9 offset-md-3">
-            <div class="form-group">
-              <div class="text-right">
-                <%= f.submit '変更を保存', class: 'btn btn-success mt-5' %>
-              </div>
-            </div>
           </div>
-           </td>
-        </tr>
-    </div>
-      </tbody>
-    </table>
-  <% end %>
+       </div>
+        <div class="row">
+            <tr>
+              <td>
+                <div class="col-md-1 offset-md-11">
+                  <div class="form-group">
+                    <div class="text-right">
+                      <%= f.submit '変更を保存', class: 'btn btn-success mt-5' %>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            </div>
+          </tbody>
+        </table>
+      <% end %>
 
   </div>
 </main>
