@@ -9,6 +9,10 @@ class Public::ItemsController < ApplicationController
     @genres = Genre.all
     @item = Item.find(params[:id])
     @cart_item = CartItem.new
-  end
 
+      unless member_signed_in?
+      flash[:alert] =
+      "ログイン済みユーザーのみカートに商品を追加できます"
+      end
+  end
 end

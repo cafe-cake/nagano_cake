@@ -1,49 +1,48 @@
-<h3>商品一覧</h3>
-
-<div class="">
-  <table>
-      <tr>
-        <th>
-          商品名ID
-        </th>
-        <th>
-          商品名
-        </th>
-        <th>
-          税抜価格
-        </th>
-        <th>
-          ジャンル
-        </th>
-        <th>
-          ステータス
-        </th>
-      </tr>
-      <tbody>
-        <% @items.each do |item| %>
-          <tr>
-            <td><%= item.id %></td>
-            <td>
-              <%= link_to admin_item_path(item.id) do %>
-                <%= item.name %>
-              <% end %>
-            </td>
-            <td>
-              <%= item.price %>
-            </td>
-            <td>
-              <%= item.genre.name %>
-            </td>
-            <td>
-              <% case item.sales_status when "販売中" %>
-              <span style="color: green;"><%= item.sales_status %></span>
-              <% when "販売中止" %>
-              <span style="color: dimgray;"><%= item.sales_status %></span>
-              <% end %>
-            </td>
+  <div class="contents-title text-center">
+  <div class="row justify-content-center">
+    <div class="col-md-8 text-left">
+      <h3>商品一覧</h3>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-8 text-left">
+      <table class="table table-hover" >
+        <tr class="table-active">
+            <th class="col-1">商品名ID</th>
+            <th class="col-2">商品名</th>
+            <th class="col-1">税抜価格</th>
+            <th class="col-2">ジャンル</th>
+            <th class="col-2">ステータス</th>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
-  <%= paginate @items %>
-</div>
+          <tbody>
+            <% @items.each do |item| %>
+              <tr>
+                <td class="col-1 align-middle">
+                  <%= item.id %>
+                </td>
+                <td class="col-2 align-middle">
+                  <%= link_to admin_item_path(item.id) do %>
+                    <%= item.name %>
+                  <% end %>
+                </td>
+                <td class="col-1 align-middle">
+                  <%= item.price %>
+                </td>
+                <td class="col-2 align-middle">
+                  <%= item.genre.name %>
+                  </td>
+                <td class="col-2 align-middle h6 font-weight-bold">
+                  <% case item.sales_status when "販売中" %>
+                  <span style="color: green;"><%= item.sales_status %></span>
+                  <% when "販売中止" %>
+                  <span style="color: dimgray;"><%= item.sales_status %></span>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <%= paginate @items %>
+    </div>
+  </div>
+  </div>
