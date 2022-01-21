@@ -1,9 +1,9 @@
 <div class="contents-title text-center">
   <div class="row">
-    <div class="col-md-2">
-      <p>部分テンプレート記述欄</p>
+    <div class="col-md-3">
+      <!--<p>部分テンプレート記述欄</p>-->
     </div>
-    <div class="col-md-10">
+    <div class="col-md-9">
        <div class="row align-items-center">
         <div class="col-md-5 text-left">
           <%= attachment_image_tag @item, :image, size: "500x400", fallback: "no_image.jpg" %>
@@ -21,7 +21,11 @@
           <%= form_with(model:[@cart_item], url:cart_items_path(@cart_item), local:true) do |f| %>
             <%= f.hidden_field :item_id, value: @item.id %>
             <%= f.number_field :count, placeholder: "個数", min: 1, max: 20 %>
-            <%= f.submit "カートに入れる", class: 'btn btn-primary' %>
+             <% if member_signed_in? %>
+              <%= f.submit "カートに入れる", class: 'btn btn-primary' %>
+            <% else %>
+              <%= f.submit "カートに入れる", class: 'btn btn-primary', disabled: true %>
+            <% end %>
           <% end %>
         </div>
       </div>
