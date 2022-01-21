@@ -22,7 +22,7 @@ class Public::OrdersController < ApplicationController
     @cart_items.each do |cart_item|
       @total_payment += cart_item.subtotal_price
     end
-    @order_url = Order.new(order.params)
+    @order = Order.new(order_params)
     @order.total_payment = @total_payment + 800
     if params[:order][:select_address] == "0"
     @order.post_number = current_member.post_number
@@ -53,8 +53,8 @@ class Public::OrdersController < ApplicationController
 
   private
 
-  def  order_params
-    params.require(:order).permit(:payment_method, :post_number, :address, :name, :total_payment)
+  def order_params
+    params.require(:order).permit(:payment_methods, :post_number, :address, :name, :total_payment)
   end
 
 end
