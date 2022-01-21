@@ -1,107 +1,60 @@
 <main>
   <div class="container">
-    <div class="row mt-4 mb-2">
+    <div class="row mt-4 mb-4">
       <h4 class="bg-light">
         <%= @member.last_name %><%= @member.first_name %>さんの会員情報編集
       </h4>
     </div>
 
-    <div class="row">
-      <div class="col-md-12">
       <%= form_with(model:[:admin,@member],local:true) do |f| %>
-        <table>
-          <tbody>
-            <tr>
-            <td>会員ID</td><td><%= @member.id %></td>
-          </tr>
-            <tr>
-              <td>氏名</td>
-              <td>
-                <div class="form-group">
-                  <%= f.text_field :last_name,autofocus: true %>
-                </div>
 
-              <td>
-                <div class="form-group">
-                  <%= f.text_field :first_name,autofocus: true %>
-                </div>
-              </td>
-               </td>
-            </tr>
-            <tr>
-              <td>フリガナ</td>
-              <td>
-                <div class="form-group">
-                  <%= f.text_field :last_name_kana,autofocus: true %>
-                </div>
-              </td>
+      <div class="form-group row justify-content-start mt-2 mb-3">
+         <div class="col-sm-3 align-self-center">会員ID</div>
+            <%= @member.id %>
+      </div>
 
-              <td>
-                <div class="form-group">
-                  <%= f.text_field :first_name_kana,autofocus: true %>
-                </div>
-              </td>
-            </tr>
+      <div class="form-group row justify-content-start mt-2 mb-3">
+         <div class="col-sm-3 align-self-center">氏名</div>
+            <%= f.text_field :last_name,autofocus: true,class:"mr-5" %>
+            <%= f.text_field :first_name,autofocus: true %>
+      </div>
 
-            <tr>
-              <td>郵便番号</td>
-              <td>
-                <div class="form-group">
-                  <%= f.text_field :post_number,autofocus: true  %>
-                </div>
-              </td>
-            </tr>
+      <div class="form-group row justify-content-start mt-2 mb-3">
+         <div class="col-sm-3 align-self-center">フリガナ</div>
+            <%= f.text_field :last_name_kana,autofocus: true,class:"mr-5" %>
+            <%= f.text_field :first_name_kana,autofocus: true %>
+      </div>
 
-            <tr>
-              <td>住所</td>
-              <td>
-                <div class="form-group">
-                  <%= f.text_field :address,size: "80x2",autofocus: true %>
-                </div>
-              </td>
-            </tr>
+      <div class="form-group row justify-content-start mt-2 mb-3">
+         <div class="col-sm-3 align-self-center">郵便番号</div>
+            <%= f.text_field :post_number,autofocus: true  %>
+      </div>
 
-            <tr>
-              <td>電話番号</td>
-              <td>
-                <div class="form-group">
-                  <%= f.text_field :phone_number,autofocus: true %>
-                </div>
-              </td>
-            </tr>
+      <div class="form-group row justify-content-start mt-2 mb-3">
+         <div class="col-sm-3 align-self-center">住所</div>
+            <%= f.text_field :address,size: "80x2",autofocus: true %>
+      </div>
 
-            <tr>
-              <td>メールアドレス</td>
-              <td>
-                <div class="form-group">
-                  <%= f.text_field :email,autofocus: true %>
-                </div>
-              </td>
-            </tr>
-            <td>会員ステータス</td>
-              <td>
-                <label><%= f.radio_button :is_deleted, :false %> 有効</label>
-                <label><%= f.radio_button :is_deleted, :true %> 退会</label>
-              </td>
-            </tr>
-          </div>
-       </div>
-        <div class="row">
-            <tr>
-              <td>
-                <div class="col-md-1 offset-md-11">
-                  <div class="form-group">
-                    <div class="text-right">
-                      <%= f.submit '変更を保存', class: 'btn btn-success mt-5' %>
-                    </div>
-                  </div>
-                </div>
-              </td>
-            </tr>
-            </div>
-          </tbody>
-        </table>
+      <div class="form-group row justify-content-start mt-2 mb-3">
+         <div class="col-sm-3 align-self-center">電話番号</div>
+            <%= f.text_field :phone_number,autofocus: true %>
+      </div>
+
+      <div class="form-group row justify-content-start mt-2 mb-3">
+         <div class="col-sm-3 align-self-center">メールアドレス</div>
+            <%= f.text_field :email,autofocus: true %>
+      </div>
+
+      <div class="form-group row justify-content-start mt-2 mb-3">
+         <div class="col-sm-3 align-self-center">会員ステータス</div>
+            <label><%= f.radio_button :is_deleted, :false %> 有効</label>
+            <label><%= f.radio_button :is_deleted, :true %> 退会</label>
+      </div>
+
+      <div class="form-group row justify-content-start mt-2">
+        <div class="col-sm-3  ofset-sm-1"></div>
+          <%= f.submit "変更を保存", class: "btn btn-success col-sm-2" %>
+      </div>
       <% end %>
-
   </div>
 </main>
