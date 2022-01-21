@@ -30,7 +30,7 @@ class Public::SessionsController < Devise::SessionsController
   def member_state
     @member = Member.find_by(email: params[:member][:email])
     return if !@member
-    if @member.valid_password?(params[:member][:password]) && (@member.is_deleted == false)
+    if @member.valid_password?(params[:member][:password]) && (@member.is_deleted == true)
         flash[:notice] = "既に退会されています。再度ご登録をお願いします。"
         redirect_to new_member_registration_path
     end

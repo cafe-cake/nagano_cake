@@ -1,18 +1,32 @@
-<h2>ログイン</h2>
-<div>会員の方はこちらからログイン</div>
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<div class="container-fluid">
+  <div class="row-justify-content-center">
+    <div class="col-2 mt-4 ml-5 text-center bg-light">
+      <h5><strong>ログイン</strong></h5>
+    </div>
+  </div>
+  <div class="col-4 mt-4 ml-5 text-center bg-light">
+    会員の方はこちらからログイン
+  </div>
+  <%= form_with model:@member, url: member_session_path,local: true do |f| %>
+  <div class="form-group row mt-4 mb-3">
+    <%= f.label :email, class:"col-sm-4 mr-3 col-form-label text-right" %>
+    <%= f.email_field :email, class:"col-sm-5" %>
   </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <%= f.password_field :password, autocomplete: "current-password" %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
+  <div class="form-group row mt-4 mb-3">
+    <%= f.label :password, class:"col-sm-4 mr-3 col-form-label text-right" %>
+    <%= f.password_field :password, class:"col-sm-5" %>
   </div>
-<% end %>
-<div>会員登録がお済でない方</div><br />
-  <%= link_to "こちら", new_member_registration_path %>から新規登録を行ってください。
+
+  <div class="form-group row mt-4 mb-3">
+    <div class="col-sm-4 mr-3"></div>
+      <%= f.submit "ログイン", class: "btn btn-primary col-sm-2" %>
+    </div>
+  </div>
+  <% end %>
+  <div class="col-4 mt-4 ml-5 text-center bg-light">
+    会員登録がお済でない方
+  </div>
+  <div class="col-8 mt-4 ml-5 text-center">
+    <%= link_to "こちら  ", new_member_registration_path %>から新規登録を行ってください。
+  </div>
