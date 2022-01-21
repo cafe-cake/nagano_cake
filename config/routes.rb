@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     end
     resources :orders, only: [:index, :show, :new, :create] do
       collection do
+        get :confirm
         post :confirm
         get :order_fix
       end

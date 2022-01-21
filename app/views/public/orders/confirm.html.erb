@@ -1,4 +1,4 @@
-<% if false %>
+
 <div class= "container">
   <div class= "row">
     <h4>注文情報確認</h4>
@@ -70,8 +70,8 @@
 <div class="container">
   <div class="row">
     <div class="">
-      <%= form_with model: @order, url: orders_path, local:true do |f| %>
-        <%= f.hidden_field :payment_method, value: @order.payment_method %>
+      <%= form_with (model: Order.new, url: orders_path, local:true) do |f| %>
+        <%= f.hidden_field :payment_methods, value: @order.payment_methods %>
         <%= f.hidden_field :post_number, value: @order.post_number %>
         <%= f.hidden_field :address, value: @order.address %>
         <%= f.hidden_field :name, value: @order.name %>
@@ -83,4 +83,3 @@
 </div>
 
 <%= @total = @total_payment + 800 %>
-<% end %>
