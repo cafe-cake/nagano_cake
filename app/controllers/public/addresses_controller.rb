@@ -1,12 +1,13 @@
 class Public::AddressesController < ApplicationController
 before_action :authenticate_member!
   def index
-    @addresses = Address.all
+    @addresses = current_member.addresses
     @address = Address.new
   end
 
   def create
     @address = Address.new(address_params)
+    @address.member_id = current_member.id
     @address.save
     if redirect_to addresses_path
     else

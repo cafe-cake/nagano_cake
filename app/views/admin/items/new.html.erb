@@ -10,18 +10,8 @@
     <div class="col-md-5 col-sm-10 mx-2 mx-sm-auto">
       <div class="form-body p-10">
       <!--エラーメッセージここから<<<-->
-      <% if @item.errors.any? %>
-        <div id="error_explanation">
-          <div class="alert alert-primary" role="alert">
-              <ul  class="mb-0">
-              <% @item.errors.full_messages.each do |message| %>
-                <dd><%= message %></dd>
-              <% end %>
-              </ul>
-          </div>
-        </div>
-      <% end %>
-    <!--ここまで>>>-->
+      <%= render 'layouts/errors', obj: @item %>
+      <!--ここまで>>>-->
 
       <%= form_with(model:[@item], url:admin_items_path, local:true) do |f| %>
       <div class="row mb-3">
