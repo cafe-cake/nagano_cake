@@ -12,7 +12,7 @@ class Public::CartItemsController < ApplicationController
     if @cart_item.save
       redirect_to cart_items_path
     else
-      flash[:alert] = "個数を選択してください"
+      flash[:alert] = "個数を選択してください" 
       redirect_to item_path(@cart_item.item_id)
     end
   end
