@@ -1,9 +1,11 @@
 <div class="container">
-  <div class="row">
-    <div class="">
+  <div class="row-justify-content-center">
+    <div class="col-md-3 my-5 text-center bg-light">
     <h3><b>注文情報入力</b></h3>
+    </div>
+  </div>
 
-      <%= form_with(model:[@order], local:true) do |f| %>
+
         <h6><b>支払方法</b></h6>
         <div>
           <%= f.collection_radio_buttons :payment_method, Order.payment_methods_i18n, :first, :last %>
