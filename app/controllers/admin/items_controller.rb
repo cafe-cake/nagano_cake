@@ -1,4 +1,5 @@
 class Admin::ItemsController < ApplicationController
+  before_action :authenticate_admin!
 
   def new
     @item = Item.new
@@ -13,9 +14,9 @@ class Admin::ItemsController < ApplicationController
     end
   end
 
-    def index
-      @items = Item.page(params[:page]).per(10).reverse_order
-    end
+  def index
+    @items = Item.page(params[:page]).per(10).reverse_order
+  end
 
   def show
     @item = Item.find(params[:id])

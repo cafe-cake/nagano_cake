@@ -13,3 +13,12 @@ ja:
         password_confirmation: "確認パスワード"
         post_number: "郵便番号"
         address: "住所"
+
+      item:
+        name: "商品名"
+        introduction: "商品説明"
+        price: "税抜価格"
+        image: "商品画像"
+        sales_status: "販売ステータス"
+        genre_id: "ジャンル"
+        genre: "ジャンル"
