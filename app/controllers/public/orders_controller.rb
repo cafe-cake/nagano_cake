@@ -21,7 +21,7 @@ class Public::OrdersController < ApplicationController
     @member = current_member
     @total_payment = 0
     @cart_items.each do |cart_item|
-      @total_payment += cart_item.subtotal_price
+      @total_payment += cart_item.item.price
     end
     @order = Order.new(order_params)
     @order.total_payment = @total_payment + 800
@@ -56,7 +56,7 @@ class Public::OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:payment_methods, :post_number, :address, :name, :total_payment)
+    params.(:order).permit(:payment_methods, :post_number, :address, :name, :total_payment)
   end
 
 end
