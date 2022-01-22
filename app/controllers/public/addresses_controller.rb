@@ -1,5 +1,5 @@
 class Public::AddressesController < ApplicationController
-
+before_action :authenticate_member!
   def index
     @addresses = Address.all
     @address = Address.new
