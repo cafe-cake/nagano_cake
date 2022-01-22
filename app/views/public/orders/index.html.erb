@@ -4,6 +4,7 @@
        <h4 class="bg-light">注文履歴一覧</h4>
      </div>
 
+     <div class="row">
       <table class="table table-bordered">
         <thead class="table-light">
           <tr>
@@ -19,7 +20,7 @@
         <tbody>
           <% @orders.each do |order| %>
           <tr>
-            <td><%= order.created_at.strftime('%Y/%m/%d')%></td>
+            <td><%= order.created_at.strftime('%Y/%m/%d') %></td>
             <td>
               <p>〒</p><%= order.post_number %></br>
               <%= order.address %>
@@ -37,5 +38,6 @@
           <% end %>
         </tbody>
       </table>
+    </div>
   </div>
 </main>
