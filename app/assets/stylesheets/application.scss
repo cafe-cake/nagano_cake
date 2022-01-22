@@ -21,10 +21,34 @@
   color: green;
  }
 
- .main-visual {
-  width: 100%;
-  height: 350px;
-  background-image: url(img/top.jpg);
-  background-size: cover;
-  background-position: center;
- }
+
+// バリデーションエラー発生時レイアウトが崩れないようにしています
+ .field_with_errors {
+  display: contents;
+    input {
+    @extend .is-invalid;
+  }
+}
+
+// kaminariのページネーションを中央に寄せる為の記述です
+// kaminariのレイアウト変更しています
+.pagination {
+  justify-content: center;
+  span{
+      text-align: center;
+      width: 50px;
+      :hover{
+          background-color:#f3f3f3;
+      }
+      a{
+          display: block;
+      }
+  }
+}
+
+
+
+
+
+
+

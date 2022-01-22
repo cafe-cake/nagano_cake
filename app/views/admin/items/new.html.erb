@@ -1,12 +1,19 @@
 <div class="contents-title text-center">
-  <div class="row">
-    <div class="col-md-12">
+  <div class="row align-items-center">
+    <div class="col-md-4 ml-5">
+      <div class="mb-5 ml-5">
+        <h3>投稿フォーム</h3>
+      </div>
+    </div>
+  </div>
+  <div class="row no-gutters">
+    <div class="col-md-5 col-sm-10 mx-2 mx-sm-auto">
+      <div class="form-body p-10">
       <!--エラーメッセージここから<<<-->
       <% if @item.errors.any? %>
         <div id="error_explanation">
           <div class="alert alert-primary" role="alert">
-              <%= @item.errors.count %>箇所の内容が入力されていません
-              <ul>
+              <ul  class="mb-0">
               <% @item.errors.full_messages.each do |message| %>
                 <dd><%= message %></dd>
               <% end %>
@@ -14,44 +21,51 @@
           </div>
         </div>
       <% end %>
-      <!--ここまで>>>-->
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-        <h3>商品新規登録</h3>
-        <%= form_with(model:[@item], url:admin_items_path, local:true) do |f| %>
-          <div class="item-form">
-            <%= f.label :image %>
-            <%= f.attachment_field :image %>
+    <!--ここまで>>>-->
+
+      <%= form_with(model:[@item], url:admin_items_path, local:true) do |f| %>
+      <div class="row mb-3">
+          <%= f.label :image, class: "col-sm-2 control-label font-weight-bold" %>
+          <div class="col-sm-5">
+            <%= f.attachment_field :image, class: "w-100" %>
           </div>
-          <div class="item-form">
-            <%= f.label :name %>
-            <%= f.text_field :name, placeholder: "商品名" %>
+      </div>
+      <div class="row mb-3">
+        <%= f.label :name, class: "col-sm-2 control-label font-weight-bold" %>
+          <div class="col-sm-10">
+            <%= f.text_field :name, placeholder: "商品名", class: "form-control" %>
           </div>
-            <div class="item-form">
-            <%= f.label :introduction %>
-            <%= f.text_area :introduction, placeholder: "ここに説明文を記述します" %>
+      </div>
+      <div class="row mb-3">
+        <%= f.label :introduction, class: "col-sm-2 control-label font-weight-bold" %>
+          <div class="col-sm-10">
+            <%= f.text_field :introduction, placeholder: "ここに説明文を記述します", class: "form-control" %>
           </div>
-            <div class="item-form">
-            <%= f.label :genre_id %>
-            <%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "--選択してください--" %>
+      </div>
+      <div class="row mb-3">
+        <%= f.label :genre_id, class: "col-sm-2 control-label font-weight-bold" %>
+          <div class="col-sm-10">
+            <%= f.collection_select :genre_id, Genre.all, :id, :name,{prompt: ""},class: "form-control" %>
           </div>
-            <div class="item-form">
-            <%= f.label :price %>
-            <%= f.number_field :price, placeholder: "1000" %>円
+      </div>
+      <div class="row mb-3">
+        <%= f.label :price, class: "col-sm-2 control-label font-weight-bold" %>
+          <div class="col-sm-10">
+            <%= f.number_field :price, placeholder: "1000", class: "form-control" %>
           </div>
-          <div class="item-form">
-            <%= f.label :sales_status %>
+      </div>
+      <div class="row">
+          <%= f.label :sales_status,class: "col-form-label font-weight-bold" %>
+          <div class="ml-5">
             <%= f.radio_button :sales_status, :"販売中" %>
             <%= f.label :sales_status, "販売中", checked: true %>
             <%= f.radio_button :sales_status, :"販売中止" %>
             <%= f.label :sales_status, "販売中止" %>
           </div>
-          <div class="item-form">
-            <%= f.submit '新規登録', class: "btn btn-primary" %>
-          </div>
-        <% end %>
-        </div>
+      </div>
+      <%= f.submit '新規登録', class: "btn btn-primary" %>
+      <% end %>
       </div>
     </div>
+  </div>
 </div>
