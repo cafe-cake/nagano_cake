@@ -1,57 +1,54 @@
 <main>
-  <h2>配送先登録/一覧</h2>
-  <%= form_with model:@address,local: true do |f| %>
-    <table>
-        <tr>
-          <td>郵便番号(ハイフンなし)</td>
-          <td>
-            <div class="form-group">
-              <%= f.text_field :post_number,autofocus: true, id:"inputName" %>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>住所</td>
-          <td>
-             <div class="form-group">
-              <%= f.text_area :address,autofocus: true, id:"inputName" %>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>宛名</td>
-          <td>
-            <div class="form-group">
-              <%= f.text_field :name,autofocus: true, id:"inputName" %>
-            </div>
-          </td>
-          <td>
-           <div class="form-group">
-            <%= f.submit '新規登録' %>
-           </div>
-          </td>
-        </tr>
-      </table>
+  <div class="container">
+     <div class="row mt-4 mb-4">
+       <h4 class="bg-light">配送先登録/一覧</h4>
+     </div>
+
+    <%= form_with model:@address,local: true do |f| %>
+      <div class="form-group row justify-content-start mt-2 mb-3">
+        <div class="col-sm-3 align-self-center">郵便番号(ハイフンなし)</div>
+          <%= f.text_field :post_number,autofocus: true %>
+      </div>
+
+      <div class="form-group row justify-content-start mt-2 mb-3">
+        <div class="col-sm-3 align-self-center">住所</div>
+          <%= f.text_field :address,autofocus: true,size: "75x2" %>
+      </div>
+
+      <div class="form-group row justify-content-start mt-2 mb-3">
+        <div class="col-sm-3 align-self-center">宛名</div>
+          <%= f.text_field :name,autofocus: true %>
+        <div class="col-sm-5"></div>
+          <%= f.submit "新規登録", class: "btn btn-success col-sm-2" %>
+      </div>
   <% end %>
-
-    <table>
+  <div class="row mb-5"></div>
+  <div class="row mt-5">
+    <table class="table table-bordered border-primary">
+      <thead class="table-light">
         <tr>
-          <th>郵便番号</th>
-          <th>住所</th>
-          <th>宛名</th>
+          <td>郵便番号</td>
+          <td>住所</td>
+          <td>宛名</td>
+          <td></td>
         </tr>
+      </thead>
 
-         <% @addresses.each do |address|%>
+
+       <% @addresses.each do |address|%>
          <tr>
            <td><%= address.post_number %></td>
            <td><%= address.address %></td>
            <td><%= address.name %></td>
            <td>
-             <%= link_to '編集する',edit_address_path(address) %>
-             <%= link_to '削除する',address_path(address),method: :delete %>
+             <%= link_to '編集する',edit_address_path(address),class: "btn btn-success text-light mr-3" %>
+             <%= link_to '削除する',address_path(address),class: "btn btn-danger",method: :delete,"data-confirm" => "本当に消しますか？" %>
            </td>
          </tr>
-         <% end %>
-      </tbody>
+      <% end %>
+
     </table>
+  </div>
+
+  </div>
 </main>
