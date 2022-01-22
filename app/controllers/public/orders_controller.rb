@@ -1,5 +1,4 @@
 class Public::OrdersController < ApplicationController
-  before_action :authenticate_member!
 
   def new
     @order = Order.new
@@ -41,7 +40,6 @@ class Public::OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     @order.member_id = current_member.id
-    @order.save
     @cart_items = CartItem.all
     @cart_items.each do |cart_item|
       @item_orders = Item_Orders.new
