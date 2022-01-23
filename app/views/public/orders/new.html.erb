@@ -5,14 +5,20 @@
     </div>
   </div>
 
-
+  <div class="row">
+    <div>
+      <%= form_with model: @order, url: confirm_orders_path,  local:true do |f| %>
         <h6><b>支払方法</b></h6>
         <div>
-          <%= f.collection_radio_buttons :payment_method, Order.payment_methods_i18n, :first, :last %>
+          <%= f.radio_button :payment_method, :クレジットカード,  checked: "checked" %>
+          <%= f.label :payment_method, "クレジットカード" %>
+          <br>
+          <%= f.radio_button :payment_method, :銀行振込 %>
+          <%= f.label :payment_method, "銀行振込" %>
         </div>
 
         <h6><b>お届け先</b></h6>
-          <%= f.radio_button :select_address, "0" %>
+          <%= f.radio_button :select_address, "0", checked: "checked"  %>
           <%= f.label :select_address, "ご自身の住所", value: 0 %>
           <p>
             〒<%= current_member.post_number %> <%= current_member.address %>
