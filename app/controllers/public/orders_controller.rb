@@ -1,4 +1,5 @@
 class Public::OrdersController < ApplicationController
+  before_action :authenticate_member!
 
   def new
     @order = Order.new
@@ -40,21 +41,23 @@ class Public::OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     @order.member_id = current_member.id
+    @order.save
     @cart_items = CartItem.all
     @cart_items.each do |cart_item|
-      @item_orders = Item_Orders.new
-      @item_orders.order.id = @order.id
+      @item_orders = ItemOrder.new
+      @item_orders.order_id = @order.id
       @item_orders.item_id = cart_item.item_id
       @item_orders.price = cart_item.item.price
       @item_orders.count = cart_item.count
     @item_orders.save
     end
+
   end
 
   private
 
   def order_params
-    params.(:order).permit(:payment_methods, :post_number, :address, :name, :total_payment)
+     params.require(:order).permit(:payment_methods, :post_number, :address, :name, :total_payment,:order_status)
   end
 
 end

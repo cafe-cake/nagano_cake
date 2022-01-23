@@ -1,11 +1,13 @@
-<div class="contents-title text-center ">
+<div class="contents-title text-center m-4">
   <div class="row m-5">
     <div class="col-sm-2">
       <!--<p>部分テンプレート記述欄</p>-->
     </div>
     <div class="col-sm-9" >
       <div class=" text-left">
-        <h4 class="mb-4 ml-2"><strong>商品一覧</strong><span class="small">(全<%= @items.count %>件)</span></h4>
+        <div class="mb-4 ml-2">
+          <h3 class= "text-center bg-light"><strong>商品一覧</strong><span class="small">(全<%= @items.count %>件)</span></h3>
+        </div>
         <div class="row">
           <% @items.each do |item| %>
           <div class="col-3">
