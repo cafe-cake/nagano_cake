@@ -6,13 +6,12 @@ class Public::OrdersController < ApplicationController
 
   def index
     @orders = Order.all
+    @order = current_member
   end
 
   def show
     @order = Order.find(params[:id])
-    @item_order = ItemOrder.find(params[:id])
-    @items = Item.all
-    @item_orders = ItemOrder.all
+    @order = current_member
   end
 
   def confirm
