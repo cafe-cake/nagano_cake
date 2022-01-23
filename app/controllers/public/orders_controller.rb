@@ -11,7 +11,11 @@ class Public::OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
-    @order = current_member
+    @item_orders = @order.item_orders
+    @total_payment = 0
+    @item_orders.each do |item_orders|
+       @total_payment += ((item_orders.item.price*item_orders.count)*1.1).floor
+    end
   end
 
   def confirm
@@ -46,7 +50,7 @@ class Public::OrdersController < ApplicationController
       @item_orders.item_id = cart_item.item_id
       @item_orders.price = cart_item.item.price
       @item_orders.count = cart_item.count
-      @item_orders.order.id = @order.id
+      @item_orders.order_id = @order.id
       @item_orders.save
     end
 
@@ -60,7 +64,7 @@ class Public::OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:payment_methods, :post_number, :address, :name, :total_payment)
+    params.require(:order).permit(:payment_methods, :post_number, :address, :name, :total_payment,:postage)
   end
 
 end
