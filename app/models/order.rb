@@ -12,6 +12,4 @@ class Order < ApplicationRecord
  def sum_of_product
   sum_of_subtotal + postage
  end
-
-
 end
