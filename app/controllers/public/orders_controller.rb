@@ -23,9 +23,10 @@ class Public::OrdersController < ApplicationController
     @member = current_member
     @total_payment = 0
     @cart_items.each do |cart_item|
-      @total_payment += cart_item.item.price
+      @total_payment += ((cart_item.item.price*cart_item.count)*1.1).floor
     end
     @order = Order.new(order_params)
+    @postage = 800
     @order.total_payment = @total_payment + 800
     if params[:order][:select_address] == "0"
     @order.post_number = current_member.post_number
@@ -36,7 +37,10 @@ class Public::OrdersController < ApplicationController
     @order.post_number = @address.post_number
     @order.address = @address.address
     @order.name = @address.name
-    else params[:order][:select_address] == "2"
+    else params[:order][:select_address] = "2"
+    @order.post_number = params[:order][:post_number]
+    @order.address = params[:order][:address]
+    @order.name = params[:order][:name]
     end
   end
 

@@ -14,12 +14,11 @@
         <%# タイムゾーンの変更はまだしてないです。この記述だとコードが長いのでlメソッドの方法も検討%>
         <td><%= link_to order.created_at.strftime("%Y/%m/%d %H:%M:%S"), admin_order_path(order) %></td>
         <%# フルネーム表示するにはモデルでfull_nameメソッドを作り、そのままビューに記述する %>
-        <td><%= order.members.full_name %></td>
+        <td><%= order.member.last_name %> <%= order.member.first_name %></td>
         <%# 商品数とそれぞれの商品の個数を合わせないといけない？　ので合計値が欲しい。中間になってる注文商品から %>
         <td><%= order.item_orders.sum(:count) %></td>
         <%# 注文ステータスを日本語化するための記述 %>
-        <td><%= order.status_i18n %></td>
-      </tr>
+        <td><%= order.order_status %></td>
     <% end %>
   </tbody>
 </table>

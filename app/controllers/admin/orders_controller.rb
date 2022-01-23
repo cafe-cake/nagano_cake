@@ -7,6 +7,11 @@ class Admin::OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    @item_orders = @order.item_orders
+    @total_payment = 0
+    @item_orders.each do |item_orders|
+      @total_payment += ((item_orders.item.price*item_orders.count)*1.1).floor
+    end
   end
 
   def update
