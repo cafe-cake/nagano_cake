@@ -1,24 +1,24 @@
-<div class="contents-title text-center">
-  <div class="row align-items-center">
-    <div class="col-md-4 ml-5">
-      <div class="mb-5 ml-5">
-        <h3>投稿フォーム</h3>
-      </div>
-    </div>
-  </div>
+<div class="contents-title text-center m-4">
   <div class="row no-gutters">
     <div class="col-md-5 col-sm-10 mx-2 mx-sm-auto">
+      <div class="mb-4 bg-light">
+        <h3><strong>新規投稿フォーム</strong></h3>
+      </div>
+
       <div class="form-body p-10">
       <!--エラーメッセージここから<<<-->
       <%= render 'layouts/errors', obj: @item %>
       <!--ここまで>>>-->
 
       <%= form_with(model:[@item], url:admin_items_path, local:true) do |f| %>
-      <div class="row mb-3">
+      <div class="row mb-3 ">
           <%= f.label :image, class: "col-sm-2 control-label font-weight-bold" %>
-          <div class="col-sm-5">
-            <%= f.attachment_field :image, class: "w-100" %>
+          <div class="col-sm-10">
+            <div class="custom-file">
+              <%= f.attachment_field :image, class: "custom-file-input w-100" %>
+              <label class="custom-file-label text-left text-muted" for="customFile" data-browse="参照" >画像を選択してください</label>
           </div>
+        </div>
       </div>
       <div class="row mb-3">
         <%= f.label :name, class: "col-sm-2 control-label font-weight-bold" %>
@@ -35,7 +35,7 @@
       <div class="row mb-3">
         <%= f.label :genre_id, class: "col-sm-2 control-label font-weight-bold" %>
           <div class="col-sm-10">
-            <%= f.collection_select :genre_id, Genre.all, :id, :name,{prompt: ""},class: "form-control" %>
+            <%= f.collection_select :genre_id, Genre.all, :id, :name,{prompt: "選択してください"},class: "form-control text-muted" %>
           </div>
       </div>
       <div class="row mb-3">
