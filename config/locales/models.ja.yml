@@ -22,3 +22,7 @@ ja:
         sales_status: "販売ステータス"
         genre_id: "ジャンル"
         genre: "ジャンル"
+
+      admin:
+        email: "メールアドレス"
+        password: "パスワード"
