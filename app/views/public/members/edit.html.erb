@@ -5,6 +5,8 @@
 　　</h5>
   </div>
   <%= form_with model:@member, local: true do |f| %>
+  <%= render 'layouts/errors', obj: @member %>
+
   <div class="form-group row justify-content-start mt-2 mb-3">
     <div class="col-sm-3 align-self-center">氏名</div>
     <%= f.text_field :last_name, class:"col-sm-2 mr-2" %>
