@@ -1,11 +1,13 @@
-<div class= "container">
-  <div class= "row">
-    <h4>注文情報確認</h4>
+<div class="container">
+  <div class="row-justify-content-center">
+    <div class="col-md-3 my-5 text-center bg-light">
+    <h4><b>注文情報確認</b></h4>
+    </div>
   </div>
 
-  <div class= "row">
-    <div class= "col-md-7">
-      <table>
+  <div class="row">
+    <div class="col-7">
+      <table class="tabele table-borderless">
         <thead>
           <tr>
             <th>商品名</th>
@@ -19,9 +21,11 @@
           <tr>
             <td><%= attachment_image_tag cart_item.item, :image, :fill, 80, 50 %> <%= cart_item.item.name %></td>
             <%#数値を3行で区切るto_s delimited%>
-            <td><%= cart_item.item.add_price.to_s(:delimited) %></td>
+            <td><%= cart_item.item.price %></td>
             <td><%= cart_item.count %></td>
-            <td><%= cart_item.subtotal_price.to_s(:delimited) %></td>
+            <td>
+                <%= cart_item.item.price %>
+            </td>
           </tr>
           <% end %>
         </tbody>
@@ -30,7 +34,7 @@
 
 
     <div class= "col-md-5">
-      <table>
+      <table class= "table table-borderless">
         <tbody>
           <tr>
             <th>送料</th>
@@ -52,12 +56,11 @@
 
 <div class="container">
   <div class="row">
-    <h4>支払い方法<h4>
-    <%= @order.payment_methods_i18n %>
+    <p>支払い方法 <%= @order.payment_methods %></p>
   </div>
 
   <div class="row">
-    <h4>お届け先</h4>
+    <h4><b>お届け先</b></h4>
     <p>
       〒<%= @order.post_number %>
       <%= @order.address %>
@@ -69,7 +72,7 @@
 <div class="container">
   <div class="row">
     <div class="">
-      <%= form_with (model: @order, url: orders_path, local:true) do |f| %>
+      <%= form_with model: @order, url: orders_path, local: true do |f| %>
         <%= f.hidden_field :payment_methods, value: @order.payment_methods %>
         <%= f.hidden_field :post_number, value: @order.post_number %>
         <%= f.hidden_field :address, value: @order.address %>
@@ -80,5 +83,3 @@
     </div>
   </div>
 </div>
-
-<%= @total = @total_payment + 800 %>
