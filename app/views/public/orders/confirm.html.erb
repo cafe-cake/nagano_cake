@@ -46,7 +46,7 @@
           </tr>
           <tr>
             <th>請求金額</th>
-            <td><%= @total_payment + 800 %></td>
+            <td><%= @total_payment + @postage %></td>
           </tr>
         </tbody>
       </table>
@@ -56,7 +56,7 @@
 
 <div class="container">
   <div class="row">
-    <p>支払い方法 <%= @order.payment_methods %></p>
+    <p>支払い方法 <%= @order.payment_methods_i18n %></p>
   </div>
 
   <div class="row">
@@ -73,7 +73,7 @@
 <div class="container">
   <div class="row">
     <div class="">
-      <%= form_with model: @order, url: orders_path, local: true do |f| %>
+      <%= form_with model: @order, url: confirm_orders_path, local: true do |f| %>
         <%= f.hidden_field :payment_methods, value: @order.payment_methods %>
         <%= f.hidden_field :post_number, value: @order.post_number %>
         <%= f.hidden_field :address, value: @order.address %>
