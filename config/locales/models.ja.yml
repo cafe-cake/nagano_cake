@@ -26,3 +26,8 @@ ja:
       admin:
         email: "メールアドレス"
         password: "パスワード"
+
+      address:
+        name: "宛名"
+        post_number: "郵便番号"
+        address: "住所"
