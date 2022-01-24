@@ -22,7 +22,7 @@
           <tr>
             <td><%= order.created_at.strftime('%Y/%m/%d') %></td>
             <td>
-              <p>〒</p><%= order.post_number %></br>
+              〒<%= order.post_number %></br>
               <%= order.address %>
               <%= order.name %>
             </td>
@@ -31,11 +31,21 @@
                 <%= item_order.item.name %>
               <% end %>
             </td>
-
+            <td><%= order.total_payment.to_s(:delimited) %>円</td>
+            <td><%= order.order_status_i18n %></td>
+            <td><%= link_to '表示する',order_path(order) %></td>
           </tr>
           <% end %>
         </tbody>
       </table>
     </div>
+
+     <div class="row">
+      <div class="col-md-3 mx-auto">
+        <%= paginate @orders %>
+      </div>
+     </div>
+
+
   </div>
 </main>

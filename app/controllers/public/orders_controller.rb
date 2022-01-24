@@ -10,7 +10,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
-    @orders = Order.all
+    @orders = Order.order(updated_at: :desc).page(params[:page]).per(10)
     @order = current_member
   end
 

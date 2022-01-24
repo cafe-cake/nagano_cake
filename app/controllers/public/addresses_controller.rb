@@ -8,8 +8,8 @@ before_action :authenticate_member!
   def create
     @address = Address.new(address_params)
     @address.member_id = current_member.id
-    @address.save
-    if redirect_to addresses_path
+    if@address.save
+    redirect_to addresses_path,notice:'配送先を新規登録しました'
     else
       @addresses = Address.all
       render :index
@@ -22,8 +22,8 @@ before_action :authenticate_member!
 
   def update
     @address = Address.find(params[:id])
-    if @address.update!(address_params)
-      redirect_to addresses_path
+    if @address.update(address_params)
+      redirect_to addresses_path,notice:'変更を保存しました'
     else
       render :edit
     end

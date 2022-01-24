@@ -1,5 +1,6 @@
 <main>
   <div class="container">
+   <%= render 'layouts/errors', obj:@member %>
     <div class="row mt-4 mb-4">
       <h4 class="bg-light">
         <%= @member.last_name %><%= @member.first_name %>さんの会員情報編集
