@@ -18,7 +18,6 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
-//= require materialize
 
 $(document).on('change', '.custom-file-input', function(event) {
   const files = this.files;
