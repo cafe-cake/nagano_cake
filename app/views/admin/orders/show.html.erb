@@ -37,7 +37,7 @@
           <%= form_with model:@order, url:admin_order_path(@order), local: true do |f| %>
           <td>
             <div class="">
-　　　　　　　　　　　　　　　　　　　　　　　　　　　　<%= f.select :order_status, Order.order_statuses_i18n.invert %>
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<%= f.select :order_status, Order.order_statuses_i18n.invert %>
               <%= f.submit "更新", class: "btn btn-success ml-3" %>
             </div>
           </td>
