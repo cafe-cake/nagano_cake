@@ -1,7 +1,12 @@
 class Public::OrdersController < ApplicationController
 
   def new
-    @order = Order.new
+    if CartItem.exists?(member_id: current_member.id)
+      @order = Order.new
+    else
+      redirect_to items_path
+    end
+    @addresses = current_member.addresses.all
   end
 
   def index
@@ -33,7 +38,7 @@ class Public::OrdersController < ApplicationController
     @order.address = current_member.address
     @order.name = current_member.last_name + current_member.first_name
     elsif params[:order][:select_address] == "1"
-    @address = Address.find(params[:order][:select_address])
+    @address = Address.find(params[:order][:member_id])
     @order.post_number = @address.post_number
     @order.address = @address.address
     @order.name = @address.name
