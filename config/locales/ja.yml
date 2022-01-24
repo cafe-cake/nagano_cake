@@ -7,10 +7,9 @@ ja:
       next: "次 &rsaquo;"
       truncate: "..."
 
-#model　ステータス
- enums:
+  enums:
     order:
-      payment_method:
+      payment_methods:
         credit_card: "クレジットカード"
         transfer: "銀行振込"
       order_status:
@@ -24,7 +23,7 @@ ja:
         wait: "製作待ち"
         production: "製作中"
         completion: "製作完了"
-#
+
   activerecord:
     attributes:
     errors:
