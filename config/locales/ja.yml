@@ -1,4 +1,5 @@
 ja:
+
   activerecord:
   #ここから(日本語化したいカルマ：表示名)
     attributes:
