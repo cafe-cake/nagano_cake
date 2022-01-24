@@ -12,7 +12,7 @@
 
   <body>
     <header>
-      <div class="container-fluid bg-light">
+      <div class="head-color container-fluid">
         <div class="row justify-content-between">
           <a class="col-auto mr-auto p-3 m-0" href="/"><%= image_tag('logo.png', :size =>'80x80') %></a>
           <div class="col-md-lg-auto mr-3 align-self-center">
@@ -79,8 +79,10 @@
         </div>
       </div>
     </header>
-    <div id="notice"><%= flash[:notice] %></div>
-    <%= yield %>
+    <div class="back_image">
+      <div id="notice"><%= flash[:notice] %></div>
+      <%= yield %>
+    </div>
     <footer></footer>
   </body>
 </html>
