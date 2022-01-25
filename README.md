@@ -13,7 +13,7 @@ DMMWEBCAMPのチーム開発で作成したECサイトとなります。
 ## インストール
  
 ```
-$ git clone https://github.com/TomoakiTANAKA/awesome-tool
+$ git clone git@github.com:cafe-cake/nagano_cake.git
 $ cd awesome-tool
 $ sh setup.sh
 $ ~do anything~
