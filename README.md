@@ -14,9 +14,6 @@ DMMWEBCAMPのチーム開発で作成したECサイトとなります。
  
 ```
 $ git clone git@github.com:cafe-cake/nagano_cake.git
-$ cd awesome-tool
-$ sh setup.sh
-$ ~do anything~
 ```
 ## チーム名
 ・カフェオレ_ケーキセット
