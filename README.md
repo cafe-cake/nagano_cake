@@ -7,7 +7,7 @@ DMMWEBCAMPのチーム開発で作成したECサイトとなります。
 #### ・ [ER図](https://drive.google.com/file/d/11lUr12CWfbmoVGRrIn8uTpUVqfG26vHm/view?usp=sharing)
 
 ## 開発環境
-・ ruby 2.6.3
+・ ruby 2.6.3</br>
 ・ rails 5.2.6
 
 ## インストール
