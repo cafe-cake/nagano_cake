@@ -1,8 +1,8 @@
 <main>
   <div class="container">
    <%= render 'layouts/errors', obj:@member %>
-    <div class="row mt-4 mb-4">
-      <h4 class="bg-light">
+    <div class="row pt-4 mb-4">
+      <h4>
         <%= @member.last_name %><%= @member.first_name %>さんの会員情報編集
       </h4>
     </div>
@@ -52,7 +52,7 @@
             <label><%= f.radio_button :is_deleted, :true %> 退会</label>
       </div>
 
-      <div class="form-group row justify-content-start mt-2">
+      <div class="form-group row justify-content-start mt-2 pb-4">
         <div class="col-sm-3  ofset-sm-1"></div>
           <%= f.submit "変更を保存", class: "btn btn-success col-sm-2" %>
       </div>
