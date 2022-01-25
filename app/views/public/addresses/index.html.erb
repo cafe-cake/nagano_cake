@@ -25,20 +25,18 @@
   <% end %>
     <div class="row mb-5"></div>
     <div class="row mt-5 pb-4">
-      <table class="table table-bordered">
-        <thead class="table-light">
-          <tr>
-            <td>郵便番号</td>
-            <td>住所</td>
-            <td>宛名</td>
-            <td></td>
-          </tr>
-        </thead>
+      <table class="table table-bordered bg-light">
+        <tr class="background-color">
+          <td>郵便番号</td>
+          <td>住所</td>
+          <td>宛名</td>
+          <td></td>
+        </tr>
 
 
          <% @addresses.each do |address|%>
            <tr>
-             <td><%= address.post_number %></td>
+             <td>〒<%= address.post_number %></td>
              <td><%= address.address %></td>
              <td><%= address.name %></td>
              <td>

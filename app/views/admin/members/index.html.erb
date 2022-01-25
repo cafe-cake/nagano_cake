@@ -5,15 +5,13 @@
      </div>
 
      <div class="row">
-      <table class="table col-md-9 mx-auto">
-        <thead class="table-light">
-          <tr>
-            <th>会員ID</th>
-            <th>氏名</th>
-            <th>メールアドレス</th>
-            <th>ステータス</th>
-          </tr>
-        </thead>
+      <table class="table col-md-9 mx-auto bg-light">
+        <tr class="background-color">
+          <th>会員ID</th>
+          <th>氏名</th>
+          <th>メールアドレス</th>
+          <th>ステータス</th>
+        </tr>
 
         <tbody>
           <% @members.each do |member| %>
@@ -34,7 +32,6 @@
                 <%= member.is_deleted ? '退会':'有効' %>
               </td>
             <% end %>
-
           </tr>
           <% end %>
         </tbody>
