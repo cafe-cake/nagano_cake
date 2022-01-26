@@ -1,0 +1,27 @@
+<main>
+  <div class="container pb-2">
+  <%= render 'layouts/errors' ,obj: @address %>
+     <div class="row pt-4 mb-4">
+       <h4>配送先編集</h4>
+     </div>
+
+      <%= form_with model:@address,local:true do |f| %>
+        <div class="form-group row justify-content-start mt-2 mb-3">
+            <div class="col-sm-3 align-self-center">郵便番号(ハイフンなし)</div>
+              <%= f.text_field :post_number,autofocus: true %>
+          </div>
+
+          <div class="form-group row justify-content-start mt-2 mb-3">
+            <div class="col-sm-3 align-self-center">住所</div>
+              <%= f.text_field :address,autofocus: true,size: "75x2" %>
+          </div>
+
+          <div class="form-group row justify-content-start mt-2 pb-4">
+            <div class="col-sm-3 align-self-center">宛名</div>
+              <%= f.text_field :name,autofocus: true %>
+            <div class="col-sm-5"></div>
+              <%= f.submit "変更内容を保存", class: "btn btn-success col-sm-2" %>
+          </div>
+      <% end %>
+  </div>
+</main>

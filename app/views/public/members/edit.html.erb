@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="col-4 py-2 text-center">
+　　<h5 class=" bg-light">
+　　  <strong>会員情報編集</strong>
+　　</h5>
+  </div>
+  <%= form_with model:@member, local: true do |f| %>
+  <%= render 'layouts/errors', obj: @member %>
+
+  <div class="form-group row justify-content-start mt-2 mb-3">
+    <div class="col-sm-3 align-self-center">氏名</div>
+    <%= f.text_field :last_name, class:"col-sm-2 mr-2" %>
+    <%= f.text_field :first_name, class:"col-sm-2 mr-2" %>
+  </div>
+
+  <div class="form-group row justify-content-start mt-2 mb-3">
+    <div class="col-sm-3 align-self-center">フリガナ</div>
+    <%= f.text_field :last_name_kana, class:"col-sm-2 mr-2" %>
+    <%= f.text_field :first_name_kana, class:"col-sm-2 mr-2" %>
+  </div>
+
+  <div class="form-group row justify-content-start mt-2 mb-3">
+    <div class="col-sm-3 align-self-center">メールアドレス</div>
+    <%= f.email_field :email, class:"col-sm-2" %>
+  </div>
+
+  <div class="form-group row justify-content-start mt-2 mb-3">
+    <div class="col-sm-3 align-self-center">郵便番号(ハイフンなし)</div>
+    <%= f.text_field :post_number, class:"col-sm-2", autocomplete: "post_number" %>
+  </div>
+
+  <div class="form-group row justify-content-start mt-2 mb-3">
+    <div class="col-sm-3 align-self-center">住所</div>
+    <%= f.text_field :address, class:"col-sm-5", autocomplete: "address" %>
+  </div>
+
+  <div class="form-group row justify-content-start mt-2 mb-3">
+    <div class="col-sm-3 align-self-center">電話番号(ハイフンなし)</div>
+    <%= f.text_field :phone_number, class:"col-sm-2", autocomplete: "phone_number" %>
+  </div>
+  <div class="form-group row justify-content-start mt-2">
+    <div class="col-sm-3"></div>
+    <%= f.submit "編集内容を保存", class: "btn btn-success col-sm-2" %>
+    <div class="col-sm-4 mx-auto">
+    <%= link_to "退会する", unsubscribe_members_path(@member), class: "btn btn-danger" %>
+  </div>
+  <% end %>
+</div>

@@ -1,0 +1,56 @@
+<div class="contents-title text-center p-4">
+  <div class="row align-items-center justify-content-sm-center">
+    <div class="col-xl-5 col-md-12">
+      <div class="row">
+        <div class="col-xl-4 "></div>
+        <div class="col-xl-8 col-lg-8 text-md-center">
+        </div>
+      </div>
+      <div class="text-md-center " >
+
+        <%= attachment_image_tag @item, :image, size: "500x400", fallback: "no_image.jpg" %>
+      </div>
+    </div>
+    <div class="col-xl-7 col-lg-8 ">
+      <div class="text-left justify-content-md-end">
+        <table class="table table-borderless d-flex w-75 ">
+          <tr>
+            <td class="font-weight-bold col-3">商品名</td>
+            <td><%= @item.name %></td>
+          </tr>
+          <tr>
+            <td class="font-weight-bold col-3 ">商品説明</td>
+            <td><%= @item.introduction %></td>
+          </tr>
+          <tr>
+            <td class="font-weight-bold col-3">ジャンル</td>
+            <td><%= @item.genre.name %></td>
+          </tr>
+          <tr>
+            <td class="font-weight-bold col-3">
+              <p class="p-0"> 税込価格<br>(税抜価格)</p>
+            </td>
+            <td>
+              <p class="pt-3"><%= ((@item.price.to_i * 1.1).round).to_s(:delimited) %>(<%= (@item.price).to_s(:delimited) %>)円</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="font-weight-bold mr-5">販売ステータス</td>
+            <td class="h6 font-weight-bold">
+              <% case @item.sales_status when "販売中" %>
+              <span style="color: green;"><%= @item.sales_status %></span>
+              <% when "販売中止" %>
+              <span style="color: dimgray;"><%= @item.sales_status %></span>
+              <% end %>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="text-left w-30">
+        <%= link_to "編集する", edit_admin_item_path(@item), class: "btn btn-primary p-2" %>
+        <%= link_to "新規商品登録", new_admin_item_path, class: "btn btn-success p-2" %>
+        <%= link_to "商品一覧", admin_items_path, class: "btn btn-success p-2" %>
+      </div>
+    </div>
+  </div>
+</div>

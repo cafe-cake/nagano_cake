@@ -14,3 +14,79 @@
  *= require_self
  */
  @import "bootstrap";
+ @import 'font-awesome-sprockets';
+ @import 'font-awesome';
+
+ #notice{
+  color: green;
+ }
+
+
+// バリデーションエラー発生時レイアウトが崩れないようにしています
+ .field_with_errors {
+  display: contents;
+    input {
+    @extend .is-invalid;
+  }
+}
+
+// kaminariのページネーションを中央に寄せる為の記述です
+// kaminariのレイアウト変更しています
+.pagination {
+  justify-content: center;
+  span{
+      text-align: center;
+      width: 50px;
+      :hover{
+          background-color:#f3f3f3;
+      }
+      a{
+          display: block;
+      }
+  }
+}
+
+ // top画面のイメージ画像を追加する記述です
+ .main-visual {
+  width: 100%;
+  height: 350px;
+  background-image: url(img/top.jpg);
+  background-size: cover;
+  background-position: center;
+ }
+
+ #alert{
+  color: red;
+ }
+
+ .back_image {
+  background-image: url(img/back_image.jpg);
+  background-size: cover;
+  background-position: center;
+ }
+
+ .header-color {
+  background-color:#ac2a2b;
+ }
+
+ .footer-color {
+  background-color:#470302;
+  height: 110px;
+ }
+
+
+* {
+ margin: 0px;
+ padding: 0px;
+}
+
+
+
+
+
+
+
+
+
+
+

@@ -6,27 +6,28 @@ Rails.application.routes.draw do
     registrations: "public/registrations",
     sessions: 'public/sessions'
   }
-scope module: :public do
-  resources :items, only: [:index, :show]
-  resources :cart_items, only: [:index, :update, :destroy, :create] do
-    collection do
-      delete :destroy_all
+  scope module: :public do
+    resources :items, only: [:index, :show]
+    resources :cart_items, only: [:index, :update, :destroy, :create] do
+      collection do
+        delete :destroy_all
+      end
+    end
+    resources :orders, only: [:index, :show, :new, :create] do
+      collection do
+        get :confirm
+        post :confirm
+        get :order_fix
+      end
+    end
+    resources :addresses, only: [:index, :create, :edit, :update, :destroy]
+    resources :members, only: [:show, :edit, :update] do
+      collection do
+        get :unsubscribe
+        patch :withdraw
+      end
     end
   end
-  resources :orders, only: [:index, :show, :new, :create] do
-    collection do
-      post :confirm
-      get :order_fix
-    end
-  end
-  resources :addresses, only: [:index, :create, :edit, :update, :destroy]
-  resources :members, only: [:show, :edit, :update] do
-    collection do
-      get :unsubscribe
-      get :withdraw
-    end
-  end
-end
 
   namespace :admin do
     root to: "homes#top"

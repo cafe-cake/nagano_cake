@@ -1,0 +1,61 @@
+<main>
+  <div class="container pb-1">
+   <%= render 'layouts/errors', obj:@member %>
+    <div class="row pt-4 mb-4">
+      <h4>
+        <%= @member.last_name %><%= @member.first_name %>さんの会員情報編集
+      </h4>
+    </div>
+
+      <%= form_with(model:[:admin,@member],local:true) do |f| %>
+
+      <div class="form-group row justify-content-start mt-2 mb-3">
+         <div class="col-sm-3 align-self-center">会員ID</div>
+            <%= @member.id %>
+      </div>
+
+      <div class="form-group row justify-content-start mt-2 mb-3">
+         <div class="col-sm-3 align-self-center">氏名</div>
+            <%= f.text_field :last_name,autofocus: true,class:"mr-5" %>
+            <%= f.text_field :first_name,autofocus: true %>
+      </div>
+
+      <div class="form-group row justify-content-start mt-2 mb-3">
+         <div class="col-sm-3 align-self-center">フリガナ</div>
+            <%= f.text_field :last_name_kana,autofocus: true,class:"mr-5" %>
+            <%= f.text_field :first_name_kana,autofocus: true %>
+      </div>
+
+      <div class="form-group row justify-content-start mt-2 mb-3">
+         <div class="col-sm-3 align-self-center">郵便番号</div>
+            <%= f.text_field :post_number,autofocus: true  %>
+      </div>
+
+      <div class="form-group row justify-content-start mt-2 mb-3">
+         <div class="col-sm-3 align-self-center">住所</div>
+            <%= f.text_field :address,size: "80x2",autofocus: true %>
+      </div>
+
+      <div class="form-group row justify-content-start mt-2 mb-3">
+         <div class="col-sm-3 align-self-center">電話番号</div>
+            <%= f.text_field :phone_number,autofocus: true %>
+      </div>
+
+      <div class="form-group row justify-content-start mt-2 mb-3">
+         <div class="col-sm-3 align-self-center">メールアドレス</div>
+            <%= f.text_field :email,autofocus: true %>
+      </div>
+
+      <div class="form-group row justify-content-start mt-2 mb-3">
+         <div class="col-sm-3 align-self-center">会員ステータス</div>
+            <label><%= f.radio_button :is_deleted, :false %> 有効</label>
+            <label><%= f.radio_button :is_deleted, :true %> 退会</label>
+      </div>
+
+      <div class="form-group row justify-content-start mt-2 pb-4">
+        <div class="col-sm-3  ofset-sm-1"></div>
+          <%= f.submit "変更を保存", class: "btn btn-success col-sm-2" %>
+      </div>
+      <% end %>
+  </div>
+</main>

@@ -1,0 +1,27 @@
+<div class="contents-title p-4">
+  <div class="row m-5 justify-content-center">
+    <div class="col-8" >
+      <div class=" text-left p-2">
+        <div class="mb-4 ml-2">
+          <h3 class= "text-center bg-light"><strong>商品一覧</strong><span class="small">(全<%= @items.count %>件)</span></h3>
+        </div>
+        <div class="row">
+          <% @items.each do |item| %>
+          <div class="col-lg-4 col-md-6 col-xs-12">
+            <div class="card mb-5">
+              <%= link_to item_path(item) do %>
+                <%= attachment_image_tag item, :image, size: "100x250", fallback: "no_image.jpg", class: "card-img-top" %>
+              <% end %>
+              <div class="card-body">
+                <h6 class="card-title"><%= item.name %></h6>
+                <p class="card-text">￥<%= ((item.price.to_i * 1.1).round).to_s(:delimited) %>円</p>
+              </div>
+            </div>
+          </div>
+          <% end %>
+        </div>
+      </div>
+      <%= paginate @items %>
+    </div>
+  </div>
+</div>
