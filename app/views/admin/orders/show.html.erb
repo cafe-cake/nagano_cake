@@ -2,6 +2,7 @@
   <div class="row p-5">
     <h4 class="bg-light">注文履歴詳細</h4>
   </div>
+        <%= form_with model:@order, url:admin_order_path(@order), method: :patch  do |f| %>
   <div class="row">
     <div class="offset-md-1 col-10">
       <table class="order_detail">
@@ -24,27 +25,26 @@
         <tr>
           <th class="p-1">配送先</th>
           <td>
-            <div>〒<%= @order.post_number %> <%= @order.address %>
+            <p>〒<%= @order.post_number %> <%= @order.address %>
                    <%= @order.name %>
-            </div>
+            </p>
           </td>
           <td></td>
         </tr>
         <tr>
           <th class="p-1">支払い方法</th>
           <td><%= @order.payment_methods_i18n %></td>
-
         </tr>
+
         <tr>
           <th class="p-1 col-5">注文ステータス</th>
-          <%= form_with model:@order, url:admin_order_path(@order), method: :patch  do |f| %>
           <td>
               <%= f.select :order_status, Order.order_statuses_i18n.invert %>
           </td>
           <td>
               <%= f.submit "更新", class: "btn btn-success ml-3" %>
           </td>
-          <% end %>
+        <% end %>
         </tr>
       </table>
     </div>
